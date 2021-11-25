@@ -1,0 +1,61 @@
+﻿<Window x:Class="Cats.MaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cats"
+        mc:Ignorable="d"
+        x:Name="MainWin"
+        Height="450"
+        Width="800"
+        Icon="/resources/icon.png" 
+        ResizeMode="CanResize" 
+        WindowStartupLocation="CenterScreen" 
+        MinWidth="800" 
+        MinHeight="450"
+        Title="Выставка кошек" >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/resources/icon.png" Stretch="Uniform" Opacity="0.05"/>
+        </Grid.Background>
+        <Menu x:Name="Menu" 
+              Height="20" 
+              VerticalAlignment="Top" 
+              Grid.Row="0" 
+              Visibility="Visible" >
+            <MenuItem Header="Кошки">
+                <MenuItem Header="Новая" Click="AddCat"/>
+                <MenuItem Header="Исключить" Click="RemoveCat"/>
+            </MenuItem>
+            <MenuItem Header="Эксперты">
+                <MenuItem Header="Новый" Click="AddExpert"/>
+                <MenuItem Header="Уволить" Click="RemoveExpert"/>
+            </MenuItem>
+            <MenuItem x:Name="SearchButton" Header="Поиск" Click="Search_Click"></MenuItem>
+            
+            <MenuItem x:Name="StartupMenuItem" 
+                      HorizontalAlignment="Right" 
+                      Header="Статистика" 
+                      HorizontalContentAlignment="Right" 
+                      Click="StartupMenuItem_Click"/>
+            <MenuItem Header="Настройки" IsEnabled="False" Cursor="No"/>
+        </Menu>
+        <Label x:Name="FixErrLabel" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center" 
+               Content="" 
+               FontSize="16" 
+               Margin="0,0,0,200" 
+               Visibility="Collapsed"/>
+        <Button x:Name="FixErrButton" 
+                Content="Повторить подключение" 
+                Visibility="Collapsed" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Click="FixErrButton_Click" FontSize="16" BorderThickness="2,2,2,2"/>
+        <Frame x:Name="MainFrame" 
+               Grid.Row="1" 
+               Margin="0,20,0,0" 
+               NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
